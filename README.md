@@ -23,6 +23,7 @@ Dependencies
 | -------------------------- | -------------------------------------------- |
 | Agilex5                    |   gsrd                                       |
 | Agilex5 DK-A5E065BB32AES1  |   gsrd [ qspi + emmc ], nand                 |
+| Agilex5 DK-A5E013BB32AESI0 |   gsrd [ qspi + emmc ], nand                 |
 | Agilex5 Modular            |   gsrd                                       |
 | Agilex7 DK-SI-AGF014EA     |   gsrd [ sgmii + pr + qspi ]                 |
 | Agilex7 DK-SI-AGF014EB     |   gsrd [ sgmii + pr + qspi ]                 |
@@ -31,6 +32,7 @@ Dependencies
 | Agilex7 DK-SI-AGI027FA     |   gsrd                                       |
 | Agilex7 DK-DEV-AGM039FES   |   gsrd                                       |
 | Stratix10                  |   gsrd [ sgmii + pr + qspi ]                 |
+| Stratix10 H-Tile           |   gsrd [ pr + qspi ]                         |
 | Arria10                    |   gsrd, qspi, nand, pcie, pr, sgmii, tse     |
 | Cyclone5                   |   gsrd                                       |
 | Default                    |   gsrd                                       |
@@ -39,16 +41,17 @@ Dependencies
 ## Default GSRD Setup
 
 1. Clone the repository  
-`$ git clone -b $POKY_VERSION https://gitlab.devtools.intel.com/psg-opensource/gsrd-socfpga.git`
+`$ git clone -b $POKY_VERSION https://github.com/altera-opensource/gsrd-socfpga.git`
 2. Sync the submodules  
 `$ cd gsrd-socfpga`  
-`$ git submodule update --init --remote -r`
+`$ git submodule update --init -r`
 3. Source the script to export component version (Linux,U-Boot,ATF,Machine,Image)  
 
 |  Target                    |            Command                             |
 | -------------------------- | ---------------------------------------------- |
 | Agilex5                    | $ . agilex5-gsrd-build.sh                      |
 | Agilex5 DK-A5E065BB32AES1  | $ . agilex5_dk_a5e065bb32aes1-$Image-build.sh  |
+| Agilex5 DK-A5E013BB32AESI0 | $ . agilex5_dk_a5e013bb32aesi0-$Image-build.sh |
 | Agilex5 Modular            | $ . agilex5_modular-gsrd-build.sh              |
 | Agilex7 DK-SI-AGF014EA     | $ . agilex7_dk_si_agf014ea-gsrd-build.sh       |
 | Agilex7 DK-SI-AGF014EB     | $ . agilex7_dk_si_agf014eb-gsrd-build.sh       |
@@ -57,6 +60,7 @@ Dependencies
 | Agilex7 DK-SI-AGI027FA     | $ . agilex7_dk_si_agi027fa-gsrd-build.sh       |
 | Agilex7 DK-DEV-AGM039FES   | $ . agilex7_dk_dev_agm039fes-gsrd-build.sh     |
 | Stratix10                  | $ . stratix10-gsrd-build.sh                    |
+| Stratix10 H-Tile           | $ . stratix10_htile-gsrd-build.sh              |
 | Arria10                    | $ . arria10-$Image-build.sh                    |
 | Cyclone V                  | $ . cyclone5-gsrd-build.sh                     |
 
@@ -66,16 +70,17 @@ Dependencies
 ## Default GSRD Setup with eSDK
 
 1. Clone the repository  
-`$ git clone -b $POKY_VERSION https://gitlab.devtools.intel.com/psg-opensource/gsrd-socfpga.git`
+`$ git clone -b $POKY_VERSION https://github.com/altera-opensource/gsrd-socfpga.git`
 2. Sync the submodules  
 `$ cd gsrd-socfpga`  
-`$ git submodule update --init --remote -r`
+`$ git submodule update --init -r`
 3. Source the script to export component version (Linux,U-Boot,ATF,Machine,Image)  
 
 |  Target                    |            Command                             |
 | -------------------------- | ---------------------------------------------- |
 | Agilex5                    | $ . agilex5-gsrd-build.sh                      |
 | Agilex5 DK-A5E065BB32AES1  | $ . agilex5_dk_a5e065bb32aes1-$Image-build.sh  |
+| Agilex5 DK-A5E013BB32AESi0 | $ . agilex5_dk_a5e013bb32aesi0-$Image-build.sh |
 | Agilex5 Modular            | $ . agilex5_modular-gsrd-build.sh              |
 | Agilex7 DK-SI-AGF014EA     | $ . agilex7_dk_si_agf014ea-gsrd-build.sh       |
 | Agilex7 DK-SI-AGF014EB     | $ . agilex7_dk_si_agf014eb-gsrd-build.sh       |
@@ -84,6 +89,7 @@ Dependencies
 | Agilex7 DK-SI-AGI027FA     | $ . agilex7_dk_si_agi027fa-gsrd-build.sh       |
 | Agilex7 DK-DEV-AGM039FES   | $ . agilex7_dk_dev_agm039fes-gsrd-build.sh     |
 | Stratix10                  | $ . stratix10-gsrd-build.sh                    |
+| Stratix10 H-Tile           | $ . stratix10_htile-gsrd-build.sh              |
 | Arria10                    | $ . arria10-$Image-build.sh                    |
 | Cyclone V                  | $ . cyclone5-gsrd-build.sh                     |
 
@@ -93,16 +99,17 @@ Dependencies
 ## Custom GSRD Setup
 
 1. Clone the repository  
-`$ git clone -b $POKY_VERSION https://gitlab.devtools.intel.com/psg-opensource/gsrd-socfpga.git`
+`$ git clone -b $POKY_VERSION https://github.com/altera-opensource/gsrd-socfpga.git`
 2. Sync the submodules  
 `$ cd gsrd-socfpga`  
-`$ git submodule update --init --remote -r`
+`$ git submodule update --init -r`
 3. Source the script to export component version (Linux,U-Boot,ATF,Machine,Image)  
 
 |  Target                    |            Command                             |
 | -------------------------- | ---------------------------------------------- |
 | Agilex5                    | $ . agilex5-gsrd-build.sh                      |
 | Agilex5 DK-A5E065BB32AES1  | $ . agilex5_dk_a5e065bb32aes1-$Image-build.sh  |
+| Agilex5 DK-A5E013BB32AESI0 | $ . agilex5_dk_a5e013bb32aesi0-$Image-build.sh |
 | Agilex5 Modular            | $ . agilex5_modular-gsrd-build.sh              |
 | Agilex7 DK-SI-AGF014EA     | $ . agilex7_dk_si_agf014ea-gsrd-build.sh       |
 | Agilex7 DK-SI-AGF014EB     | $ . agilex7_dk_si_agf014eb-gsrd-build.sh       |
@@ -111,6 +118,7 @@ Dependencies
 | Agilex7 DK-SI-AGI027FA     | $ . agilex7_dk_si_agi027fa-gsrd-build.sh       |
 | Agilex7 DK-DEV-AGM039FES   | $ . agilex7_dk_dev_agm039fes-gsrd-build.sh     |
 | Stratix10                  | $ . stratix10-gsrd-build.sh                    |
+| Stratix10 H-Tile           | $ . stratix10_htile-gsrd-build.sh              |
 | Arria10                    | $ . arria10-$Image-build.sh                    |
 | Cyclone V                  | $ . cyclone5-gsrd-build.sh                     |
 
@@ -121,13 +129,18 @@ Dependencies
               1. Add custom GHRD design in:  
                  $WORKSPACE/meta-intel-fpga-refdes/recipes-bsp/ghrd/files  
                  NOTE: Update/Replace the file with the same naming convention  
-					   For Agilex5 DK-A5E065BB32AES1:-  
+                       For Agilex5 DK-A5E065BB32AES1:-  
                                   agilex5_dk_a5e065bb32aes1_gsrd_ghrd.core.rbf 
                                   agilex5_dk_a5e065bb32aes1_nand_ghrd.core.rbf   
                                   agilex5_dk_a5e065bb32aes1_emmc_ghrd.core.rbf  
-					   For Agilex5 Modular:-  
+                                  agilex5_dk_a5e065bb32aes1_tsnconfig2_ghrd.core.rbf
+                       For Agilex5 DK-A5E013BB32AESI0:-
+                                  agilex5_dk_a5e013bb32aesi0_gsrd_ghrd.core.rbf
+                                  agilex5_dk_a5e013bb32aesi0_nand_ghrd.core.rbf
+                                  agilex5_dk_a5e013bb32aesi0_emmc_ghrd.core.rbf
+                       For Agilex5 Modular:-  
                                   agilex5_modular_gsrd_ghrd.core.rbf 
-					   For Agilex7 DK-SI-AGF014EA:-  
+                       For Agilex7 DK-SI-AGF014EA:-  
                                   agilex7_dk_si_agf014ea_gsrd_ghrd.core.rbf  
                                   agilex7_dk_si_agf014ea_nand_ghrd.core.rbf  
                                   agilex7_dk_si_agf014ea_pr_ghrd.core.rbf  
@@ -146,8 +159,15 @@ Dependencies
                        For Stratix10:-  
                                   stratix10_gsrd_ghrd.core.rbf  
                                   stratix10_nand_ghrd.core.rbf  
+                                  stratix10_pr_ghrd.core.rbf
                                   stratix10_pr_persona0.rbf  
                                   stratix10_pr_persona1.rbf  
+                       For Stratix10 H-Tile:-
+                                  stratix10_htile_gsrd_ghrd.core.rbf
+                                  stratix10_htile_nand_ghrd.core.rbf
+                                  stratix10_htile_pr_ghrd.core.rbf
+                                  stratix10_htile_pr_persona0.rbf
+                                  stratix10_htile_pr_persona1.rbf
                        For Arria10:-  
                                   GSRD:-  
                                       arria10_gsrd_ghrd_10as066n2.core.rbf  
