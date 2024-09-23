@@ -56,7 +56,7 @@ echo "UBOOT_SOCFPGA_BRANCH = $UBOOT_SOCFPGA_BRANCH"
 #------------------------------------------------------------------------------------------#
 # Set UB_CONFIG for each of the configurations
 #------------------------------------------------------------------------------------------#
-if [[ "$MACHINE" == *"agilex"* || "$MACHINE" == "stratix10" ]]; then
+if [[ "$MACHINE" == *"agilex"* || "$MACHINE" == *"stratix10"* ]]; then
 	if [[ "$MACHINE" == *"dk_si_agf014eb"* ]]; then
 		UB_CONFIG="agilex7_dk_si_agf014ea-socdk-atf"
 	elif [[ "$MACHINE" == *"dk_si_agi027f"* ]]; then
