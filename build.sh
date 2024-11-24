@@ -210,7 +210,7 @@ bitbake_image() {
 		bitbake u-boot-socfpga -c cleanall
 		echo -e "\n[INFO] Clean up previous ghrd build if any"
 		bitbake hw-ref-design -c cleanall
-		if [[ "$MACHINE" == *"agilex7_"* || "$MACHINE" == "stratix10" ]]; then
+		if [[ "$MACHINE" == *"agilex7_"* || "$MACHINE" == *"stratix10"* ]]; then
 			echo -e "\n[INFO] Clean up previous dtb build if any"
 			bitbake device-tree -c cleanall
 		fi
@@ -276,7 +276,7 @@ package() {
 			cp -vrL kernel.* $STAGING_FOLDER/	|| echo "[INFO] No .itb file found."
 		fi
 
-		if [[ "$MACHINE" == *"agilex5_"* || "$MACHINE" == *"agilex7_"* || "$MACHINE" == "stratix10" ]]; then
+		if [[ "$MACHINE" == *"agilex5_"* || "$MACHINE" == *"agilex7_"* || "$MACHINE" == *"stratix10"* ]]; then
 			cp -vrL devicetree/* $STAGING_FOLDER/	|| echo "[INFO] No dtb found."
 		elif [[ "$MACHINE" == "arria10" && "$IMAGE" == "nand" ]]; then
 			cp -vrL socfpga_arria10_socdk_nand.dtb $STAGING_FOLDER/		|| echo "[INFO] No dtb found."
@@ -287,7 +287,7 @@ package() {
 		fi
 	popd > /dev/null
 
-	if [[ "$MACHINE" == *"agilex"* || "$MACHINE" == "stratix10" ]]; then
+	if [[ "$MACHINE" == *"agilex"* || "$MACHINE" == *"stratix10"* ]]; then
 		mkdir -p $STAGING_FOLDER/u-boot-$MACHINE-socdk-$IMAGE-atf
 		ub_cp_destination=$STAGING_FOLDER/u-boot-$MACHINE-socdk-$IMAGE-atf
 	elif [[ "$MACHINE" == "arria10" || "$MACHINE" == "cyclone5" ]]; then
@@ -310,7 +310,7 @@ package() {
 		cp -vL spl/u-boot-spl.map $ub_cp_destination
 		cp -vL spl/u-boot-spl.bin $ub_cp_destination
 
-		if [[ "$MACHINE" == *"agilex"* || "$MACHINE" == "stratix10" ]]; then
+		if [[ "$MACHINE" == *"agilex"* || "$MACHINE" == *"stratix10"* ]]; then
 			cp -vL spl/u-boot-spl-dtb.hex $ub_cp_destination
 			cp -vL u-boot.itb $ub_cp_destination
 		elif [[ "$MACHINE" == "cyclone5" || "$MACHINE" == "arria10" ]]; then
@@ -331,7 +331,7 @@ package() {
 
 	# Copy u-boot script / extlinux.conf to u-boot staging folder
 	pushd $WORKSPACE/$MACHINE-$IMAGE-rootfs/tmp/deploy/images/$MACHINE/ > /dev/null
-		if [[ "$MACHINE" == *"agilex"* || "$MACHINE" == "stratix10" ]]; then
+		if [[ "$MACHINE" == *"agilex"* || "$MACHINE" == *"stratix10"* ]]; then
 			cp -vL u-boot.txt $ub_cp_destination
 			cp -vL boot.scr.uimg $ub_cp_destination
 		elif [[ "$MACHINE" == "arria10" && "$IMAGE" == "pr" ]]; then
